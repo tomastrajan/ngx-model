@@ -1,0 +1,49 @@
+{
+  "name": "ngx-model",
+  "version": "1.0.0",
+  "description": "Angular Model. Simple state management with minimalistic API, one way data flow, multiple model support and immutable data exposed as RxJS Observable.",
+  "main": "index.ts",
+  "scripts": {
+    "test": "mocha ./lib/model.test.ts --require ts-node/register"
+  },
+  "homepage": "https://github.com/tomastrajan/ngx-model#readme",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0"
+  },
+  "dependencies": {
+    "rxjs": "^5.4.2"
+  },
+  "devDependencies": {
+    "@angular/core": "^4.3.1",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^8.0.14",
+    "@types/sinon": "^2.3.3",
+    "mocha": "^3.4.2",
+    "sinon": "^2.3.8",
+    "standard-version": "^4.2.0",
+    "ts-node": "^3.2.0",
+    "typescript": "^2.4.2"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomastrajan/ngx-model.git"
+  },
+  "keywords": [
+    "angular",
+    "model",
+    "state management",
+    "rxjs",
+    "observable",
+    "immutable",
+    "one way data flow",
+    "typescript"
+  ],
+  "author": "Tomas Trajan <tomas.trajan@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomastrajan/ngx-model/issues"
+  }
+}
