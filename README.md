@@ -4,6 +4,11 @@ Simple state management with minimalistic API, one way data flow,
 multiple model support and immutable data exposed as RxJS Observable.
 
 
+## Documentation
+                           
+* Check out [Demo & Documentation](http://tomastrajan.github.io/angular-model-pattern-example/) 
+* Check out [Blog Post](https://medium.com/@tomastrajan/model-pattern-for-angular-state-management-6cb4f0bfed87) 
+
 ## Getting started
 
 1. Install `ngx-model`
