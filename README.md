@@ -1,4 +1,4 @@
-#Angular Model by [@tomastrajan](https://twitter.com/tomastrajan)
+# Angular Model by [@tomastrajan](https://twitter.com/tomastrajan)
 
 Simple state management with minimalistic API, one way data flow, 
 multiple model support and immutable data exposed as RxJS Observable.
@@ -21,10 +21,10 @@ multiple model support and immutable data exposed as RxJS Observable.
     import { NgxModelModule } from 'ngx-model';
         
     @NgModule({
-        /* ... */
-        imports: [
-            NgxModelModule
-        ]
+      /* ... */
+      imports: [
+        NgxModelModule
+      ]
     })
     export class CoreModule {}
     
@@ -38,18 +38,85 @@ multiple model support and immutable data exposed as RxJS Observable.
     @Injectable()
     export class TodosService {
             
-        private model: Model<Todo[]>;
-        todos$: Observable<Todo[]>;
+      private model: Model<Todo[]>;
+      
+      todos$: Observable<Todo[]>;
+      todosCount$: Observable<TodosCounts>;
             
-        constructor(private modelFactory: ModelFactory<Todo[]>) {
-            this.model = this.modelFactory.create([]);
-            this.todos$ = this.model.data$;
-        }
+      constructor(private modelFactory: ModelFactory<Todo[]>) {
+        this.model = this.modelFactory.create([]);
+        this.todos$ = this.model.data$;
+        this.todosCounts$ = this.todos$.map(todos => ({
+          all: todos.length,
+          active: todos.filter(t => !t.done).length,
+          done: todos.filter(t => t.done).length
+        }));
+      }
+        
+      toggleTodo(name: string) {
+        // retrieve raw model data
+        const todos = this.model.get();
+            
+        // mutate model data
+        todos.forEach(t => {
+          if (t.name === name) {
+            t.done = !t.done;
+          }
+        });
+            
+        // set new model data (after mutation)
+        this.model.set(todos);
+      }
+        
+      /* ... */
+        
+    }
     ```
 
 4. Use service in your component. Import and inject service into components constructor.
 Subscribe to services data in template `todosService.todos$ | async` 
 or explicitly `this.todosService.todos$.subscribe(todos => { /* ... */ })`
+
+    ```
+    import { Component, OnInit, OnDestroy } from '@angular/core';
+    import { TodosService, Todo, TodosCounts } from './todos.service';
+    import { Subscription } from 'rxjs/Subscription';
+    
+    @Component({
+      selector: 'ampe-todos',
+      templateUrl: `
+        /* ... */
+        <p>Todo list ({{counts.active}})</p>
+        <ul>
+          <!-- template subscription to todos using async pipe -->
+          <li *ngFor="let todo of todosService.todos$ | async" (click)="onTodoClick(todo)">
+            {{todo.name}}
+          </li>
+        </ul>
+      `,
+    })
+    export class TodosComponent implements OnInit, OnDestroy {
+    
+      subscription: Subscription;
+      counts: TodosCounts;
+     
+      constructor(public todosService: TodosService) {}
+    
+      ngOnInit() {
+        // explicit subscription to todos counts
+        this.subscription = this.todosService.todosCounts$
+          .subscribe(counts => (this.counts = counts));
+      }
+    
+      onTodoClick(todo: Todo) {
+        this.todosService.toggleTodo(todo.name);
+      }
+      
+      /* ... */
+    
+    }
+
+    ```
 
 ## Documentation
 
