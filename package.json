@@ -4,7 +4,8 @@
   "description": "Angular Model. Simple state management with minimalistic API, one way data flow, multiple model support and immutable data exposed as RxJS Observable.",
   "main": "index.ts",
   "scripts": {
-    "test": "mocha ./lib/model.test.ts --require ts-node/register"
+    "test": "mocha ./lib/model.test.ts --require ts-node/register",
+    "release": "standard-version && git push --follow-tags origin master && npm publish"
   },
   "homepage": "https://github.com/tomastrajan/ngx-model#readme",
   "peerDependencies": {
