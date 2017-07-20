@@ -4,46 +4,48 @@ import 'rxjs/add/operator/map';
 
 export class Model<T> {
 
-    private _data: BehaviorSubject<T>;
+  private _data: BehaviorSubject<T>;
 
-    data$: Observable<T>;
+  data$: Observable<T>;
 
-    constructor(initialData: any, immutable: boolean, clone?: (data: T) => T) {
-        this._data = new BehaviorSubject(initialData);
-        this.data$ = this._data.asObservable()
-            .map(data => immutable
-                ? clone ? clone(data) : JSON.parse(JSON.stringify(data))
-                : data);
-    }
+  constructor(initialData: any, immutable: boolean, clone?: (data: T) => T) {
+    this._data = new BehaviorSubject(initialData);
+    this.data$ = this._data.asObservable()
+      .map(data => immutable
+        ? clone ? clone(data) : JSON.parse(JSON.stringify(data))
+        : data);
+  }
 
-    get(): T {
-        return this._data.getValue();
-    }
+  get(): T {
+    return this._data.getValue();
+  }
 
-    set(data: T) {
-        this._data.next(data);
-    }
+  set(data: T) {
+    this._data.next(data);
+  }
 
 }
 
 export class ModelFactory<T> {
 
-    create(initialData: T): Model<T> { return new Model<T>(initialData, true); }
+  create(initialData: T): Model<T> {
+    return new Model<T>(initialData, true);
+  }
 
-    createMutable(initialData: T): Model<T> {
-        return new Model<T>(initialData, false);
-    }
+  createMutable(initialData: T): Model<T> {
+    return new Model<T>(initialData, false);
+  }
 
-    createWithCustomClone(initialData: T, clone) {
-        return new Model<T>(initialData, true, clone);
-    }
+  createWithCustomClone(initialData: T, clone) {
+    return new Model<T>(initialData, true, clone);
+  }
 
 }
 
 export function useModelFactory() {
-    return new ModelFactory();
+  return new ModelFactory();
 }
 
 export const MODEL_PROVIDER = {
-    provide: ModelFactory, useFactory: useModelFactory
+  provide: ModelFactory, useFactory: useModelFactory
 };

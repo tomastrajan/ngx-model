@@ -4,6 +4,6 @@ import { MODEL_PROVIDER } from './lib/model';
 export * from './lib/model'
 
 @NgModule({
-    providers: [MODEL_PROVIDER]
+  providers: [MODEL_PROVIDER]
 })
-export class NgxModelModule { }
+export class NgxModelModule {}
