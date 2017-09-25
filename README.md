@@ -1,4 +1,4 @@
-# Angular Model by [@tomastrajan](https://twitter.com/tomastrajan)
+# Angular Model by [@tomastrajan](https://twitter.com/tomastrajan) [![Build Status](https://travis-ci.org/tomastrajan/ngx-model.svg?branch=master)](https://travis-ci.org/tomastrajan/ngx-model)
 
 Simple state management with minimalistic API, one way data flow, 
 multiple model support and immutable data exposed as RxJS Observable.
@@ -19,6 +19,12 @@ multiple model support and immutable data exposed as RxJS Observable.
     
     ```
     npm install --save ngx-model
+    ``` 
+    ```
+    or
+    
+    ```
+    yarn add ngx-model
     ``` 
 
 2. Import and use `NgxModelModule` in you `AppModule` (or `CoreModule`)
