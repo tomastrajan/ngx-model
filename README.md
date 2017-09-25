@@ -20,7 +20,7 @@ multiple model support and immutable data exposed as RxJS Observable.
     ```
     npm install --save ngx-model
     ``` 
-    ```
+ 
     or
     
     ```
