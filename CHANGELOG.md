@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/tomastrajan/ngx-model/compare/v2.0.0...v3.0.0) (2017-09-25)
+
+
+### Bug Fixes
+
+* **types:** add missing type for function parameter (to work with noImplicitAny) ([a811708](https://github.com/tomastrajan/ngx-model/commit/a811708)), closes [#2](https://github.com/tomastrajan/ngx-model/issues/2)
+
+
+### BREAKING CHANGES
+
+* **types:** Should be frictionless update, will result in problems only in case it was used with custom `clone` function with different than expected type signature (highly unlikely)
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/tomastrajan/ngx-model/compare/v1.0.1...v2.0.0) (2017-08-26)
 
