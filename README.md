@@ -9,6 +9,8 @@ multiple model support and immutable data exposed as RxJS Observable.
 * Check out [Demo & Documentation](http://tomastrajan.github.io/angular-model-pattern-example/) 
 * Check out [Blog Post](https://medium.com/@tomastrajan/model-pattern-for-angular-state-management-6cb4f0bfed87) 
 
+![ngx-model dataflow diagram](https://raw.githubusercontent.com/tomastrajan/angular-model-pattern-example/master/src/assets/model_graph.png "ngx-model dataflow diagram")
+
 ## Getting started
 
 1. Install `ngx-model`
@@ -32,7 +34,6 @@ multiple model support and immutable data exposed as RxJS Observable.
     import { NgxModelModule } from 'ngx-model';
         
     @NgModule({
-      /* ... */
       imports: [
         NgxModelModule
       ]
@@ -52,25 +53,19 @@ multiple model support and immutable data exposed as RxJS Observable.
       private model: Model<Todo[]>;
       
       todos$: Observable<Todo[]>;
-      todosCount$: Observable<TodosCounts>;
             
       constructor(private modelFactory: ModelFactory<Todo[]>) {
-        this.model = this.modelFactory.create([]);
-        this.todos$ = this.model.data$;
-        this.todosCounts$ = this.todos$.map(todos => ({
-          all: todos.length,
-          active: todos.filter(t => !t.done).length,
-          done: todos.filter(t => t.done).length
-        }));
+        this.model = this.modelFactory.create([]); // create model and pass initial data
+        this.todos$ = this.model.data$; // expose model data as named public property
       }
         
-      toggleTodo(name: string) {
+      toggleTodo(id: string) {
         // retrieve raw model data
         const todos = this.model.get();
             
         // mutate model data
         todos.forEach(t => {
-          if (t.name === name) {
+          if (t.id === id) {
             t.done = !t.done;
           }
         });
@@ -78,8 +73,6 @@ multiple model support and immutable data exposed as RxJS Observable.
         // set new model data (after mutation)
         this.model.set(todos);
       }
-        
-      /* ... */
         
     }
     ```
@@ -90,14 +83,15 @@ or explicitly `this.todosService.todos$.subscribe(todos => { /* ... */ })`
 
     ```
     import { Component, OnInit, OnDestroy } from '@angular/core';
-    import { TodosService, Todo, TodosCounts } from './todos.service';
-    import { Subscription } from 'rxjs/Subscription';
+    import { Subject } from 'rxjs/Subject';
+    
+    import { TodosService, Todo } from './todos.service';
     
     @Component({
-      selector: 'ampe-todos',
+      selector: 'ngx-model-todos',
       templateUrl: `
         /* ... */
-        <p>Todo list ({{counts.active}})</p>
+        <h1>Todos ({{count}})</h1>
         <ul>
           <!-- template subscription to todos using async pipe -->
           <li *ngFor="let todo of todosService.todos$ | async" (click)="onTodoClick(todo)">
@@ -108,28 +102,34 @@ or explicitly `this.todosService.todos$.subscribe(todos => { /* ... */ })`
     })
     export class TodosComponent implements OnInit, OnDestroy {
     
-      subscription: Subscription;
-      counts: TodosCounts;
+      private unsubscribe$: Subject<void> = new Subject<void>();
+      
+      count: number;
      
       constructor(public todosService: TodosService) {}
     
       ngOnInit() {
-        // explicit subscription to todos counts
-        this.subscription = this.todosService.todosCounts$
-          .subscribe(counts => (this.counts = counts));
+        // explicit subscription to todos to get count
+        this.todosService.todos
+          .takeUntil(this.unsubscribe$) // declarative unsubscription
+          .subscribe(todos => this.count = todos.length);
+      }
+      
+      ngOnDestroy(): void {
+        // for declarative unsubscription
+        this.unsubscribe$.next();
+        this.unsubscribe$.complete();
       }
     
       onTodoClick(todo: Todo) {
-        this.todosService.toggleTodo(todo.name);
+        this.todosService.toggleTodo(todo.id);
       }
-      
-      /* ... */
     
     }
 
     ```
 
-## Documentation
+## Relationship to Angular Model Pattern
 
 This is a library version of original [Angular Model Pattern](https://tomastrajan.github.io/angular-model-pattern-example).
 All the original examples and documentation is still valid. The only difference is that
