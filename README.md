@@ -17,10 +17,6 @@ multiple model support and immutable data exposed as RxJS Observable.
 ## Getting started
 
 1. Install `ngx-model`
-    ```
-    npm i -S ngx-model
-    ```
-    or
     
     ```
     npm install --save ngx-model
@@ -134,12 +130,11 @@ or explicitly `this.todosService.todos$.subscribe(todos => { /* ... */ })`
 
 ## Relationship to Angular Model Pattern
 
-This is a library version of original [Angular Model Pattern](https://tomastrajan.github.io/angular-model-pattern-example).
-All the original examples and documentation is still valid. The only difference is that
+This is a library version of [Angular Model Pattern](https://tomastrajan.github.io/angular-model-pattern-example).
+All the original examples and documentation are still valid. The only difference is that
 you can install `ngx-model` from npm instead of having to copy model pattern
-implementation to your project by hand.
+implementation to your project manually.
 
-Als, check out the [Blog Post](https://medium.com/@tomastrajan/model-pattern-for-angular-state-management-6cb4f0bfed87) and 
+Check out the [Blog Post](https://medium.com/@tomastrajan/model-pattern-for-angular-state-management-6cb4f0bfed87) and 
 [Advanced Usage Patterns](https://tomastrajan.github.io/angular-model-pattern-example#/advanced) 
-to find more how-tos and examples.
-
+for more how-tos and examples.
