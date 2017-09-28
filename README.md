@@ -1,4 +1,6 @@
-# Angular Model by [@tomastrajan](https://twitter.com/tomastrajan) [![Build Status](https://travis-ci.org/tomastrajan/ngx-model.svg?branch=master)](https://travis-ci.org/tomastrajan/ngx-model)
+# Angular Model by [@tomastrajan](https://twitter.com/tomastrajan)
+
+[![npm](https://img.shields.io/npm/v/ngx-model.svg)](https://www.npmjs.com/package/ngx-model) [![npm](https://img.shields.io/npm/dm/ngx-model.svg)](https://www.npmjs.com/package/ngx-model) [![npm](https://img.shields.io/npm/l/ngx-model.svg)](https://github.com/tomastrajan/ngx-model/blob/master/LICENSE) [![Build Status](https://travis-ci.org/tomastrajan/ngx-model.svg?branch=master)](https://travis-ci.org/tomastrajan/ngx-model)
 
 Simple state management with minimalistic API, one way data flow, 
 multiple model support and immutable data exposed as RxJS Observable.
