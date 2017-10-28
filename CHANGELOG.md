@@ -1,5 +1,22 @@
 # Change Log
 
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="4.0.0"></a>
+# [4.0.0](https://github.com/tomastrajan/ngx-model/compare/v3.1.0...v4.0.0) (2017-10-28)
+
+
+### Features
+
+* **rxjs:** use lettable operators instead of monkey patching of observable prototype ([2989a91](https://github.com/tomastrajan/ngx-model/commit/2989a91))
+
+
+### BREAKING CHANGES
+
+* **rxjs:** can break applications (very low probability) which use map operator without importing it by themselves thus depending on the ngx-model map operator import, require rxjs 5.5.0 or higher
+
+
+
 <a name="3.1.0"></a>
 # [3.1.0](https://github.com/tomastrajan/ngx-model/compare/v3.0.1...v3.1.0) (2017-09-30)
 
