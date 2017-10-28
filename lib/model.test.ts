@@ -6,12 +6,10 @@ import { ModelFactory } from './model';
 const modelFactory = new ModelFactory<TestModel>();
 
 describe('Model', () => {
-
   it('should expose model data in observable', () => {
     const model = modelFactory.create({ value: 'test' });
 
-    model.data$.subscribe(data =>
-      assert.deepEqual(data, { value: 'test' }));
+    model.data$.subscribe(data => assert.deepEqual(data, { value: 'test' }));
   });
 
   it('should expose raw data getter', () => {
@@ -21,7 +19,7 @@ describe('Model', () => {
   });
 
   it('should expose raw data setter', () => {
-    const model = modelFactory.create(<TestModel> { value: 'test' });
+    const model = modelFactory.create(<TestModel>{ value: 'test' });
 
     model.set({ value: 'changed' });
 
@@ -48,8 +46,10 @@ describe('Model', () => {
 
   it('should use custom clone function when configured', () => {
     const cloneSpy = sinon.spy();
-    const model = modelFactory
-      .createWithCustomClone({ value: 'test' }, cloneSpy);
+    const model = modelFactory.createWithCustomClone(
+      { value: 'test' },
+      cloneSpy
+    );
 
     model.data$.subscribe(() => {
       sinon.assert.calledOnce(cloneSpy);
@@ -63,12 +63,11 @@ describe('Model', () => {
 
     model2.set({ value: 'changed' });
 
-    model1.data$.subscribe(data =>
-      assert.deepEqual(data, { value: 'test1' }));
+    model1.data$.subscribe(data => assert.deepEqual(data, { value: 'test1' }));
     model2.data$.subscribe(data =>
-      assert.deepEqual(data, { value: 'changed' }));
+      assert.deepEqual(data, { value: 'changed' })
+    );
   });
-
 });
 
 interface TestModel {

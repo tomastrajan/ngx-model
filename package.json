@@ -4,8 +4,10 @@
   "description": "Angular Model. Simple state management with minimalistic API, one way data flow, multiple model support and immutable data exposed as RxJS Observable.",
   "main": "index.ts",
   "scripts": {
-    "test": "tslint *.ts && mocha ./lib/model.test.ts --require ts-node/register",
-    "release": "standard-version && git push --follow-tags origin master && npm publish"
+    "test": "tslint *.ts && npm run prettier:ci && mocha ./lib/model.test.ts --require ts-node/register",
+    "release": "standard-version && git push --follow-tags origin master && npm publish",
+    "prettier": "prettier --single-quote --parser typescript --write \"./**/*.ts\"",
+    "prettier:ci": "prettier --single-quote --parser typescript --list-different \"./**/*.ts\""
   },
   "homepage": "https://github.com/tomastrajan/ngx-model#readme",
   "peerDependencies": {
@@ -18,12 +20,14 @@
     "@types/node": "^8.0.14",
     "@types/sinon": "^2.3.3",
     "mocha": "^3.4.2",
+    "prettier": "^1.7.4",
     "rxjs": "^5.4.3",
     "sinon": "^2.3.8",
     "standard-version": "^4.2.0",
     "ts-node": "^3.2.0",
     "tslint": "^5.5.0",
-    "typescript": "^2.4.2"
+    "typescript": "^2.4.2",
+    "zone.js": "^0.8.18"
   },
   "files": [
     "lib"
