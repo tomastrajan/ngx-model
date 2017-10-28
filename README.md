@@ -9,8 +9,9 @@ multiple model support and immutable data exposed as RxJS Observable.
 
 ## Documentation
                            
-* Check out [Demo & Documentation](http://tomastrajan.github.io/angular-model-pattern-example/) 
-* Check out [Blog Post](https://medium.com/@tomastrajan/model-pattern-for-angular-state-management-6cb4f0bfed87) 
+* [Demo & Documentation](http://tomastrajan.github.io/angular-model-pattern-example/) 
+* [Blog Post](https://medium.com/@tomastrajan/model-pattern-for-angular-state-management-6cb4f0bfed87) 
+* [Changelog](https://github.com/tomastrajan/ngx-model/blob/master/CHANGELOG.md)
 
 ![ngx-model dataflow diagram](https://raw.githubusercontent.com/tomastrajan/angular-model-pattern-example/master/src/assets/model_graph.png "ngx-model dataflow diagram")
 
