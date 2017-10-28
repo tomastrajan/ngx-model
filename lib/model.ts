@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators/map';
 
 export class Model<T> {
   private _data: BehaviorSubject<T>;
@@ -11,11 +11,13 @@ export class Model<T> {
     this._data = new BehaviorSubject(initialData);
     this.data$ = this._data
       .asObservable()
-      .map(
-        data =>
-          immutable
-            ? clone ? clone(data) : JSON.parse(JSON.stringify(data))
-            : data
+      .pipe(
+        map(
+          data =>
+            immutable
+              ? clone ? clone(data) : JSON.parse(JSON.stringify(data))
+              : data
+        )
       );
   }
 
