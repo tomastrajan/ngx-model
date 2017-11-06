@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0"></a>
+# [5.0.0](https://github.com/tomastrajan/ngx-model/compare/v4.0.0...v5.0.0) (2017-11-06)
+
+
+### Bug Fixes
+
+* **build:** distribute as compiled javascript instead of typescript sources ([12627a4](https://github.com/tomastrajan/ngx-model/commit/12627a4)), closes [#3](https://github.com/tomastrajan/ngx-model/issues/3)
+
+
+### BREAKING CHANGES
+
+* **build:** Use ng-packagr to generate UMD, FESM5 and FESM2015 bundles and distribute them instead of original typescript sources. This is necessary since Angular CLI 1.5 correctly doesn't compile 3rd party libraries anymore.
+
+
+
 <a name="4.0.0"></a>
 # [4.0.0](https://github.com/tomastrajan/ngx-model/compare/v3.1.0...v4.0.0) (2017-10-28)
 
