@@ -6,6 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 package-lock.json
 .idea
+dist
 
 # Runtime data
 pids

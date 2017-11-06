@@ -4,10 +4,17 @@
   "description": "Angular Model. Simple state management with minimalistic API, one way data flow, multiple model support and immutable data exposed as RxJS Observable.",
   "main": "index.ts",
   "scripts": {
-    "test": "tslint *.ts && npm run prettier:ci && mocha ./lib/model.test.ts --require ts-node/register",
-    "release": "standard-version && git push --follow-tags origin master && npm publish",
+    "clean": "rm -rf ./dist",
+    "test": "npm run clean && tslint *.ts && npm run prettier:ci && mocha ./lib/model.test.ts --require ts-node/register",
+    "build": "npm run clean && ng-packagr",
+    "release": "npm run test && standard-version && git push --follow-tags origin master && npm run build && npm publish ./dist",
     "prettier": "prettier --single-quote --parser typescript --write \"./**/*.ts\"",
     "prettier:ci": "prettier --single-quote --parser typescript --list-different \"./**/*.ts\""
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "index.ts"
+    }
   },
   "homepage": "https://github.com/tomastrajan/ngx-model#readme",
   "peerDependencies": {
@@ -20,6 +27,7 @@
     "@types/node": "^8.0.14",
     "@types/sinon": "^2.3.3",
     "mocha": "^3.4.2",
+    "ng-packagr": "^1.5.0",
     "prettier": "^1.7.4",
     "rxjs": "^5.5.0",
     "sinon": "^2.3.8",
@@ -29,9 +37,6 @@
     "typescript": "^2.4.2",
     "zone.js": "^0.8.18"
   },
-  "files": [
-    "lib"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tomastrajan/ngx-model.git"
