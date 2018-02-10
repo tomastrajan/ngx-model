@@ -140,3 +140,14 @@ implementation to your project manually.
 Check out the [Blog Post](https://medium.com/@tomastrajan/model-pattern-for-angular-state-management-6cb4f0bfed87) and 
 [Advanced Usage Patterns](https://tomastrajan.github.io/angular-model-pattern-example#/advanced) 
 for more how-tos and examples.
+
+
+## Getting started with Schematics
+
+1. make sure you're using this in project generated with Angular CLI.
+2. install dependency with `npm i -D @angular-extensions/schematics`
+3. generate model services with `ng g model path/my-model --collection @angular-extensions/schematics`
+4. or with `ng g model path/my-collection-model --items --collection @angular-extensions/schematics` form model of collection of items
+5. add your own model service methods and tests
+
+![Generating model using schematics](https://raw.githubusercontent.com/angular-extensions/schematics/master/assets/model-schematics.gif)
