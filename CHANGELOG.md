@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.1.0"></a>
+# [5.1.0](https://github.com/tomastrajan/ngx-model/compare/v5.0.0...v5.1.0) (2018-02-10)
+
+
+### Features
+
+* **docs:** add getting started with schematics ([945238c](https://github.com/tomastrajan/ngx-model/commit/945238c))
+
+
+
 <a name="5.0.0"></a>
 # [5.0.0](https://github.com/tomastrajan/ngx-model/compare/v4.0.0...v5.0.0) (2017-11-06)
 
