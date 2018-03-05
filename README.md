@@ -31,7 +31,8 @@ multiple model support and immutable data exposed as RxJS Observable.
     ``` 
 
 2. Import and use `NgxModelModule` in you `AppModule` (or `CoreModule`)
-    ```
+
+    ```ts
     import { NgxModelModule } from 'ngx-model';
         
     @NgModule({
@@ -44,7 +45,8 @@ multiple model support and immutable data exposed as RxJS Observable.
     ``` 
 
 3. Import and use `Model` and `ModelFactory` in your own services.
-    ```
+
+    ```ts
     import { Injectable } from '@angular/core';
     import { ModelFactory, Model } from 'ngx-model';
         
@@ -82,7 +84,7 @@ multiple model support and immutable data exposed as RxJS Observable.
 Subscribe to services data in template `todosService.todos$ | async` 
 or explicitly `this.todosService.todos$.subscribe(todos => { /* ... */ })`
 
-    ```
+    ```ts
     import { Component, OnInit, OnDestroy } from '@angular/core';
     import { Subject } from 'rxjs/Subject';
     
