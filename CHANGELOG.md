@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.2.0"></a>
+# [5.2.0](https://github.com/tomastrajan/ngx-model/compare/v5.1.0...v5.2.0) (2018-03-06)
+
+
+### Features
+
+* **build:** add watch script ([d0a4996](https://github.com/tomastrajan/ngx-model/commit/d0a4996))
+* **docs:** pretty highlighting text for code ([11c6b59](https://github.com/tomastrajan/ngx-model/commit/11c6b59))
+* **model:** add support for shared subscription with new factory method "createMutableWithSharedSubscription" ([640ae48](https://github.com/tomastrajan/ngx-model/commit/640ae48))
+
+
+
 <a name="5.1.0"></a>
 # [5.1.0](https://github.com/tomastrajan/ngx-model/compare/v5.0.0...v5.1.0) (2018-02-10)
 
