@@ -6,6 +6,7 @@
   "scripts": {
     "clean": "rm -rf ./dist",
     "test": "npm run clean && tslint *.ts && npm run prettier:ci && mocha ./lib/model.test.ts --require ts-node/register",
+    "watch": "mocha ./lib/model.test.ts --require ts-node/register --watch-extensions ts --watch ",
     "build": "npm run clean && ng-packagr",
     "release": "npm run test && standard-version && git push --follow-tags origin master && npm run build && npm publish ./dist",
     "prettier": "prettier --single-quote --parser typescript --write \"./**/*.ts\"",
