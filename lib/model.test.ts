@@ -68,6 +68,32 @@ describe('Model', () => {
       assert.deepEqual(data, { value: 'changed' })
     );
   });
+
+  it('should not share subscription by default', () => {
+    const model = modelFactory.create({ value: 'test' });
+
+    model.data$.subscribe(data => {
+      data.value = 'changed';
+      assert.deepEqual(data, { value: 'changed' });
+    });
+    model.data$.subscribe(data => {
+      assert.deepEqual(data, { value: 'test' });
+    });
+  });
+
+  it('should share subscription when configured', () => {
+    const model = modelFactory.createMutableWithSharedSubscription({
+      value: 'test'
+    });
+
+    model.data$.subscribe(data => {
+      data.value = 'changed';
+      assert.deepEqual(data, { value: 'changed' });
+    });
+    model.data$.subscribe(data => {
+      assert.deepEqual(data, { value: 'changed' });
+    });
+  });
 });
 
 interface TestModel {
