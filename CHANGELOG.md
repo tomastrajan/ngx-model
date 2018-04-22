@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.2.1"></a>
+## [5.2.1](https://github.com/tomastrajan/ngx-model/compare/v5.2.0...v5.2.1) (2018-04-22)
+
+
+### Bug Fixes
+
+* **build:** use date of release as last modified for generated files,fixes [#7](https://github.com/tomastrajan/ngx-model/issues/7) ([cae1837](https://github.com/tomastrajan/ngx-model/commit/cae1837))
+
+
+
 <a name="5.2.0"></a>
 # [5.2.0](https://github.com/tomastrajan/ngx-model/compare/v5.1.0...v5.2.0) (2018-03-06)
 
