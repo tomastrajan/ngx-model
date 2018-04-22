@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { MODEL_PROVIDER } from './lib/model';
+import { MODEL_PROVIDER } from './model';
 
-export * from './lib/model';
+export * from './model';
 
 @NgModule({
   providers: [MODEL_PROVIDER]

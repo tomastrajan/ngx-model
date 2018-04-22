@@ -1,5 +1,5 @@
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { map } from 'rxjs/operators/map';
 import { shareReplay } from 'rxjs/operators/shareReplay';
 
@@ -19,12 +19,14 @@ export class Model<T> {
       .asObservable()
       .pipe(
         map(
-          data =>
+          (data: T) =>
             immutable
-              ? clone ? clone(data) : JSON.parse(JSON.stringify(data))
+              ? clone
+                ? clone(data)
+                : JSON.parse(JSON.stringify(data))
               : data
         ),
-        sharedSubscription ? shareReplay(1) : map(data => data)
+        sharedSubscription ? shareReplay(1) : map((data: T) => data)
       );
   }
 

@@ -2,41 +2,45 @@
   "name": "ngx-model",
   "version": "5.2.0",
   "description": "Angular Model. Simple state management with minimalistic API, one way data flow, multiple model support and immutable data exposed as RxJS Observable.",
-  "main": "index.ts",
+  "main": "lib/index.ts",
   "scripts": {
-    "clean": "rm -rf ./dist",
+    "clean": "rm -rf ./dist && rm -rf ./.ng_pkg_build && rm -f ./dist.tgz",
     "test": "npm run clean && tslint *.ts && npm run prettier:ci && mocha ./lib/model.test.ts --require ts-node/register",
     "watch": "mocha ./lib/model.test.ts --require ts-node/register --watch-extensions ts --watch ",
-    "build": "npm run clean && ng-packagr",
+    "build": "npm run clean && ng-packagr -p package.json",
     "release": "npm run test && standard-version && git push --follow-tags origin master && npm run build && npm publish ./dist",
     "prettier": "prettier --single-quote --parser typescript --write \"./**/*.ts\"",
     "prettier:ci": "prettier --single-quote --parser typescript --list-different \"./**/*.ts\""
   },
   "ngPackage": {
     "lib": {
-      "entryFile": "index.ts"
+      "entryFile": "lib/index.ts",
+      "comments": "none"
     }
   },
   "homepage": "https://github.com/tomastrajan/ngx-model#readme",
   "peerDependencies": {
     "@angular/core": ">=4.0.0",
-    "rxjs": ">=5.5.0"
+    "rxjs": "^5.5.0"
   },
   "devDependencies": {
-    "@angular/core": "^4.3.1",
-    "@types/mocha": "^2.2.41",
-    "@types/node": "^8.0.14",
-    "@types/sinon": "^2.3.3",
-    "mocha": "^3.4.2",
-    "ng-packagr": "^1.5.0",
-    "prettier": "^1.7.4",
-    "rxjs": "^5.5.0",
-    "sinon": "^2.3.8",
-    "standard-version": "^4.2.0",
-    "ts-node": "^3.2.0",
-    "tslint": "^5.5.0",
-    "typescript": "^2.4.2",
-    "zone.js": "^0.8.18"
+    "@angular/compiler": "^5.2.10",
+    "@angular/compiler-cli": "^5.2.10",
+    "@angular/core": "^5.2.10",
+    "@types/mocha": "^5.2.0",
+    "@types/node": "^9.6.6",
+    "@types/sinon": "^4.3.1",
+    "mocha": "^5.1.1",
+    "ng-packagr": "^2.4.2",
+    "prettier": "^1.12.1",
+    "rxjs": "^5.5.10",
+    "sinon": "^4.5.0",
+    "standard-version": "^4.3.0",
+    "ts-node": "^6.0.0",
+    "tsickle": "~0.26.0",
+    "tslint": "^5.9.1",
+    "typescript": "~2.6.0",
+    "zone.js": "^0.8.26"
   },
   "repository": {
     "type": "git",

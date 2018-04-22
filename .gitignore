@@ -4,9 +4,9 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json
 .idea
 dist
+.ng_pkg_build
 
 # Runtime data
 pids
