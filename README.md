@@ -9,7 +9,7 @@ multiple model support and immutable data exposed as RxJS Observable.
 
 ## Documentation
                            
-* [StackBlitz Demo](http://tomastrajan.github.io/angular-model-pattern-example/) 
+* [StackBlitz Demo](https://stackblitz.com/github/tomastrajan/ngx-model-example) 
 * [Demo & Documentation](http://tomastrajan.github.io/angular-model-pattern-example/) 
 * [Blog Post](https://medium.com/@tomastrajan/model-pattern-for-angular-state-management-6cb4f0bfed87) 
 * [Changelog](https://github.com/tomastrajan/ngx-model/blob/master/CHANGELOG.md)
