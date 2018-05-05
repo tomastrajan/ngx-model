@@ -1,7 +1,5 @@
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { map } from 'rxjs/operators/map';
-import { shareReplay } from 'rxjs/operators/shareReplay';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 
 export class Model<T> {
   private _data: BehaviorSubject<T>;

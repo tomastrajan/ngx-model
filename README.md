@@ -9,6 +9,7 @@ multiple model support and immutable data exposed as RxJS Observable.
 
 ## Documentation
                            
+* [StackBlitz Demo](http://tomastrajan.github.io/angular-model-pattern-example/) 
 * [Demo & Documentation](http://tomastrajan.github.io/angular-model-pattern-example/) 
 * [Blog Post](https://medium.com/@tomastrajan/model-pattern-for-angular-state-management-6cb4f0bfed87) 
 * [Changelog](https://github.com/tomastrajan/ngx-model/blob/master/CHANGELOG.md)
@@ -48,6 +49,7 @@ multiple model support and immutable data exposed as RxJS Observable.
 
     ```ts
     import { Injectable } from '@angular/core';
+    import { Observable } from 'rxjs';
     import { ModelFactory, Model } from 'ngx-model';
         
     @Injectable()
@@ -86,7 +88,7 @@ or explicitly `this.todosService.todos$.subscribe(todos => { /* ... */ })`
 
     ```ts
     import { Component, OnInit, OnDestroy } from '@angular/core';
-    import { Subject } from 'rxjs/Subject';
+    import { Subject } from 'rxjs';
     
     import { TodosService, Todo } from './todos.service';
     
@@ -114,7 +116,9 @@ or explicitly `this.todosService.todos$.subscribe(todos => { /* ... */ })`
       ngOnInit() {
         // explicit subscription to todos to get count
         this.todosService.todos
-          .takeUntil(this.unsubscribe$) // declarative unsubscription
+          .pipe(
+            takeUntil(this.unsubscribe$) // declarative unsubscription
+          )
           .subscribe(todos => this.count = todos.length);
       }
       
