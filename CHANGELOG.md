@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="6.0.0"></a>
+# [6.0.0](https://github.com/tomastrajan/ngx-model/compare/v5.2.1...v6.0.0) (2018-05-05)
+
+
+### Features
+
+* **dependencies:** use version 6 of rxjs and angular, adjust imports ([6fbc50c](https://github.com/tomastrajan/ngx-model/commit/6fbc50c))
+
+
+### BREAKING CHANGES
+
+* **dependencies:** Update ngx-model to work with angular v6.0.0, by bumping peerDependencies of angular and rxjs and adjusting rxjs related imports
+
+- adjust readme code examples
+- adjust tslint import blacklist rule
+
+
+
 <a name="5.2.1"></a>
 ## [5.2.1](https://github.com/tomastrajan/ngx-model/compare/v5.2.0...v5.2.1) (2018-04-22)
 
