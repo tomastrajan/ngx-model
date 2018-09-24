@@ -5,12 +5,12 @@
   "main": "lib/index.ts",
   "scripts": {
     "clean": "rm -rf ./dist && rm -rf ./.ng_pkg_build && rm -f ./dist.tgz",
-    "test": "npm run clean && tslint *.ts && npm run prettier:ci && mocha ./lib/model.test.ts --require ts-node/register",
+    "test": "npm run clean && tslint *.ts && npm run format:ci && mocha ./lib/model.test.ts --require ts-node/register",
     "watch": "mocha ./lib/model.test.ts --require ts-node/register --watch-extensions ts --watch ",
     "build": "npm run clean && ng-packagr -p package.json",
     "release": "npm run test && standard-version && git push --follow-tags origin master && npm run build && npm publish ./dist",
-    "prettier": "prettier --single-quote --parser typescript --write \"./**/*.ts\"",
-    "prettier:ci": "prettier --single-quote --parser typescript --list-different \"./**/*.ts\""
+    "format": "prettier --single-quote --write \"./**/*.ts\"",
+    "format:ci": "prettier --single-quote --list-different \"./**/*.ts\""
   },
   "ngPackage": {
     "lib": {
