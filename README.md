@@ -164,8 +164,8 @@ for more how-tos and examples.
 
 1. make sure you're using this in project generated with Angular CLI.
 2. install dependency with `npm i -D @angular-extensions/schematics`
-3. generate model services with `ng g model path/my-model --collection @angular-extensions/schematics`
-4. or with `ng g model path/my-collection-model --items --collection @angular-extensions/schematics` form model of collection of items
+3. generate model services with `ng g @angular-extensions/schematics:model --name path/my-model`
+4. or with `ng g @angular-extensions/schematics:model --name path/my-model-collection --items` form model of collection of items
 5. add your own model service methods and tests
 
 ![Generating model using schematics](https://raw.githubusercontent.com/angular-extensions/schematics/master/assets/model-schematics.gif)
