@@ -1,3 +1,8 @@
+# ⚠️ IMPORTANT
+## THIS REPO / PACKAGE HAS BEEN DEPRECATED
+
+Please use new `@angular-extensions/model`[package](https://www.npmjs.com/package/@angular-extensions/model) / [repo](https://github.com/angular-extensions/model) which is a combination of both the model library and related schematics which renders this package uselsess. On the other hand, feel free to keep using `ngx-model` if it suits your needs, it will not be deleted, but there will be no further development. Please, have a look into [migration](https://github.com/angular-extensions/model#migration-from-ngx-model) section in the new documentation.
+
 # The Angular Model - ngx-model
 by [@tomastrajan](https://twitter.com/tomastrajan)
 
